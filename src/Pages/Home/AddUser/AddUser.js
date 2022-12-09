@@ -8,7 +8,7 @@ const AddUser = ({userCollection}) => {
     const createUser = async () =>{
         await addDoc(userCollection, {name:name, email:email, age:age})
         toast.success("Added Successfully")
-        // window.location.reload()
+        window.location.reload()
     }
     return (
         <div>

@@ -42,7 +42,7 @@ const Login = () => {
                
                 updateUser(userInfo)
                 .then(() => {
-                    // saveUser(user.displayName, user.email)
+                   navigate('/')
                 })
                 .catch(err => console.log(err));
             })
@@ -50,23 +50,7 @@ const Login = () => {
                 console.log(error.message)
             });
     }
-    // const saveUser = (name, email) => {
-    //     const user = { name, email};
-    //     // console.log(user);
-    //     fetch('https://b612-used-products-resale-server-side-rakibul-hasan2-main.vercel.app/users', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(user)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             // console.log('save user',data)
-    //             setLoginUserEmail(email)
-    //         })
-    // }
-
+   
     return (
         <div className='lg:flex justify-center items-center'>
             <div>

@@ -25,7 +25,7 @@ const SignUp = () => {
                 console.log(userInfo)
                 updateUser(userInfo)
                     .then(() => {
-                        // saveUser(data.name, data.email, data.role)
+                        navigate('/')
                     })
                     .catch(err => console.log(err));
             })
@@ -33,24 +33,6 @@ const SignUp = () => {
                 console.log(error)
                 setSignUPError(error.message)
             });
-
-
-        // const saveUser = (name, email, role) => {
-        //     const user = { name, email, role };
-        //     fetch('https://b612-used-products-resale-server-side-rakibul-hasan2-main.vercel.app/users', {
-        //         method: 'POST',
-        //         headers: {
-        //             'content-type': 'application/json'
-        //         },
-        //         body: JSON.stringify(user)
-        //     })
-        //         .then(res => res.json())
-        //         .then(data => {
-        //             // console.log('save user',data)
-
-        //             setCreatedUserEmail(email)  
-        //         })
-        // }
     }
 
     return (

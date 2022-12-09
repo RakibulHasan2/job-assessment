@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserInfo = ({ user,deleteUser }) => {
+const UserInfo = ({ user, deleteUser, updateUser,setId }) => {
     return (
         <div className="card w-96 bg-sky-700 text-neutral-content">
             <div className="card-body items-center text-center">
@@ -8,8 +8,8 @@ const UserInfo = ({ user,deleteUser }) => {
                 <p>Email : {user.email}</p>
                 <p>Age : {user.age}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Update</button>
-                    <button onClick={() => {deleteUser(user.id)}} className="btn btn-success">Delete</button>
+                    <label onClick={() => setId(user.id)} htmlFor="update-modal" className="btn">Update</label>
+                    <button onClick={() => { deleteUser(user.id) }} className="btn btn-success">Delete</button>
                 </div>
             </div>
         </div>

@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { collection, getDocs,doc,  deleteDoc } from "firebase/firestore";
+import { collection, getDocs,doc,  deleteDoc,updateDoc} from "firebase/firestore";
 import { db } from './../../firebase/firebaseConfig';
 import UserInfo from '../UserInfo/UserInfo';
 import AddUser from './AddUser/AddUser';
+import { toast } from 'react-hot-toast';
+import UpdateUser from './UpdateUser/UpdateUser';
 const Home = () => {
     const [users, setUsers] = useState([])
+    const [id, setId] = useState('')
     const userCollection = collection(db, "users")
+
     useEffect(() => {
         const getUsers = async () => {
             const data = await getDocs(userCollection);
@@ -14,11 +18,26 @@ const Home = () => {
         getUsers();
         console.log(users)
     }, [])
+
     const deleteUser = async(id) =>{
         const userDoc = doc(db, "users", id)
         await deleteDoc(userDoc)
-
+        toast.success("Delete Successfully")
+        window.location.reload()  
     }
+    const updateUser = async(id, updates)=>{
+        console.log(updates)
+        const userDoc = doc(db, "users", id);
+        // console.log(userDoc)
+        const newAge = { 
+            // name: updates.name,
+            // email: updates.email,
+            name: updates.name
+        };
+        await updateDoc(userDoc, newAge);
+        
+    }
+// console.log(id)
     return (
         <div>
             <AddUser
@@ -31,7 +50,17 @@ const Home = () => {
                         key={user.id}
                         user={user}
                         deleteUser = {deleteUser}
+                        updateUser={updateUser}
+                        setId = {setId}
                     ></UserInfo>)
+                }
+            </div>
+            <div>
+                {
+                    <UpdateUser
+                    updateUser = {updateUser}
+                    id = {id}
+                    ></UpdateUser>
                 }
             </div>
         </div>
