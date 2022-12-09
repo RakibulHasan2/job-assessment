@@ -32,7 +32,6 @@ const WordFInd = () => {
         }
        const text = (restSentence(sentence, word));
        setOutput(text)
-       form.reset()
     }
     return (
         <div className=''>
