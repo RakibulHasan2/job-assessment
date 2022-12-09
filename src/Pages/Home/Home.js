@@ -17,7 +17,6 @@ const Home = () => {
             setUsers(data.docs.map(doc => ({ ...doc.data(), id: doc.id })))
         }
         getUsers();
-        console.log(users)
     }, [])
 
     const deleteUser = async (id) => {
@@ -31,17 +30,15 @@ const Home = () => {
         const userDoc = doc(db, "users", id);
         // console.log(userDoc)
         const newAge = {
-            // name: updates.name,
-            // email: updates.email,
-            name: updates.name
+            age: updates.age
         };
         await updateDoc(userDoc, newAge);
-
+        window.location.reload()
     }
     // console.log(id)
     return (
         <div>
-            <div className='flex justify-evenly'>
+            <div className='flex justify-evenly mt-6'>
                 <AddUser
                     userCollection={userCollection}
                 ></AddUser>

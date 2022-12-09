@@ -42,7 +42,7 @@ const WordFInd = () => {
                         <input name='sentence' className='bg-slate-200 rounded-xl mb-4 p-3' type="text" placeholder='write a sentence...'
 
                         />
-                        <input name='word' maxlength="1" className=' bg-slate-200 rounded-xl mb-4 p-3' type="text" placeholder='word...'
+                        <input name='word' maxLength="1" className=' bg-slate-200 rounded-xl mb-4 p-3' type="text" placeholder='word...'
                         />
                         <h1 className='mb-2 text-xl font-bold text-center'>Output : <span className='text-primary'>{output}</span></h1>
                         <button className=' btn bg-gray-600'>Submit</button>

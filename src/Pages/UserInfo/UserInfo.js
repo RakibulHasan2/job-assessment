@@ -2,7 +2,7 @@ import React from 'react';
 
 const UserInfo = ({ user, deleteUser, updateUser,setId }) => {
     return (
-        <div className="card w-96 bg-sky-700 text-neutral-content">
+        <div className="card w-96 bg-gray-600 text-neutral-content">
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{user.name}</h2>
                 <p>Email : {user.email}</p>
