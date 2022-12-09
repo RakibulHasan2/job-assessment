@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs,doc,  deleteDoc } from "firebase/firestore";
 import { db } from './../../firebase/firebaseConfig';
 import UserInfo from '../UserInfo/UserInfo';
 import AddUser from './AddUser/AddUser';
@@ -14,6 +14,11 @@ const Home = () => {
         getUsers();
         console.log(users)
     }, [])
+    const deleteUser = async(id) =>{
+        const userDoc = doc(db, "users", id)
+        await deleteDoc(userDoc)
+
+    }
     return (
         <div>
             <AddUser
@@ -25,6 +30,7 @@ const Home = () => {
                     users.map(user => <UserInfo
                         key={user.id}
                         user={user}
+                        deleteUser = {deleteUser}
                     ></UserInfo>)
                 }
             </div>

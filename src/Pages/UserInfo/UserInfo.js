@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserInfo = ({ user }) => {
+const UserInfo = ({ user,deleteUser }) => {
     return (
         <div className="card w-96 bg-sky-700 text-neutral-content">
             <div className="card-body items-center text-center">
@@ -9,7 +9,7 @@ const UserInfo = ({ user }) => {
                 <p>Age : {user.age}</p>
                 <div className="card-actions justify-end">
                     <button className="btn btn-primary">Update</button>
-                    <button className="btn btn-success">Delete</button>
+                    <button onClick={() => {deleteUser(user.id)}} className="btn btn-success">Delete</button>
                 </div>
             </div>
         </div>
